@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Lifestyle</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #24352a;
+    background: #f7faf5;
+    line-height: 1.6;
+}
+
+
+.guide-section {
+    padding: 100px 0;
+    background: #f7faf5;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.guide-card {
+    padding: 35px;
+    background: white;
+    border-radius: 22px;
+    border: 1px solid #e5eee2;
+    transition: .3s;
+}
+
+.guide-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(42,70,45,.10);
+}
+
+.guide-card span {
+    font-size: 40px;
+}
+
+.guide-card h3 {
+    margin: 18px 0 10px;
+    font-size: 22px;
+}
+
+.guide-card p {
+    color: #68766b;
+    font-size: 15px;
+}
+
+
+
+.goals-section {
+    padding: 100px 0;
+    background: #e7f0e1;
+}
+
+.goals-heading {
+    max-width: 650px;
+    margin-bottom: 55px;
+}
+
+.goals-heading h2 {
+    font-size: 48px;
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+.goals-heading h2 span {
+    color: #63935d;
+}
+
+.goals-heading > p:last-child {
+    color: #68766b;
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+
+.goal {
+    display: flex;
+    gap: 25px;
+    padding: 30px 20px;
+    border-top: 1px solid #cbdac5;
+}
+
+.goal strong {
+    font-size: 14px;
+    color: #63935d;
+}
+
+.goal h3 {
+    margin-bottom: 7px;
+}
+
+.goal p {
+    color: #68766b;
+    font-size: 14px;
+    max-width: 400px;
+}
+
+.navbar {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #285c36;
+}
+
+.logo span {
+    color: #79a66a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #405346;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #4f8b52;
+}
+
+
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+        linear-gradient(90deg, rgba(20,55,31,.85), rgba(20,55,31,.35)),
+        url("images/green-hero.jpg") center/cover;
+}
+
+.hero-content {
+    max-width: 650px;
+    color: white;
+}
+
+.small-title,
+.section-label {
+    color: #77a56c;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero .small-title {
+    color: #d6e8cb;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #b8d8a7;
+}
+
+.hero-content p:not(.small-title) {
+    max-width: 560px;
+    color: #e7eee5;
+    font-size: 17px;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 25px;
+    background: #dcebcf;
+    color: #254c2d;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.hero-btn:hover {
+    background: white;
+}
+
+
+
+.container {
+    width: 84%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.intro {
+    text-align: center;
+    padding: 110px 0 70px;
+}
+
+.intro h2 {
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+.intro h2 span {
+    color: #63935d;
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: auto;
+    color: #68766b;
+}
+
+#bttn{
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(black);
+    border-radius: 999px;
+    padding: 10px 18px;
+    color: var(--deep-forest);
+    background: var(--white);
+    transition: transform .3s ease, background-color .3s ease, border-color .3s ease;
+}
+#bttn:hover{
+    transform: translateX(-3px);
+    border: 3px sold green;
+    background: green;
+    color: #fff;
+}
+#bttn{
+    border: none;
+}
+
+
+
+.section {
+    padding: 80px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 40px;
+    margin-top: 8px;
+}
+
+.section-heading > p {
+    max-width: 400px;
+    color: #68766b;
+}
+
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.eco-card {
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(42,70,45,.08);
+    transition: .3s;
+}
+
+.eco-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.eco-card h3 {
+    margin-bottom: 10px;
+}
+
+.eco-card p {
+    color: #6b786d;
+    font-size: 14px;
+}
+
+
+.recycling-section {
+    background: #edf5e9;
+    padding: 90px 0;
+}
+
+.recycle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.recycle-item {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.recycle-item span {
+    font-size: 40px;
+}
+
+.recycle-item h3 {
+    margin: 15px 0 8px;
+}
+
+.recycle-item p {
+    color: #69766c;
+    font-size: 14px;
+}
+
+
+.habit-list {
+    border-top: 1px solid #dce5db;
+}
+
+.habit {
+    display: flex;
+    gap: 30px;
+    padding: 25px 10px;
+    border-bottom: 1px solid #dce5db;
+}
+
+.habit > span {
+    color: #719a69;
+    font-weight: bold;
+}
+
+.habit h3 {
+    margin-bottom: 5px;
+}
+
+.habit p {
+    color: #6d786f;
+}
+
+
+
+.tips {
+    padding: 100px 0;
+    background: #dfead8;
+    text-align: center;
+}
+
+.tips h2 {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 38px;
+}
+
+#tipBtn {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    background: #315f38;
+    color: white;
+    cursor: pointer;
+}
+
+#tipBtn:hover {
+    background: #244b2b;
+}
+
+
+footer {
+    text-align: center;
+    padding: 55px 20px;
+    background: #23392a;
+    color: white;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c5d0c6;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+
+
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .card-grid,
+    .recycle-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-heading {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .intro h2,
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .card-grid,
+    .recycle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .habit {
+        gap: 15px;
+    }
+}</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            🌿 Green<span>Lifestyle</span>
+        </div>
+
+        <div class="nav-links">
+           
+        </div>
+        <div>
+            <a href="index.html"><button id="bttn">back</button></a>
+        </div>
+    </nav>
+
+
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="small-title">LIVE GREEN • LIVE BETTER</p>
+
+            <h1>
+                Small Changes,
+                <span>Greener Future.</span>
+            </h1>
+
+            <p>
+                Discover simple ways to reduce your carbon footprint,
+                recycle better and build an eco-friendly lifestyle.
+            </p>
+
+            <a href="#carbon" class="hero-btn">
+                Explore Green Living
+            </a>
+        </div>
+
+    </section>
+
+
+
+    <section class="intro container">
+
+        <p class="section-label">GREEN LIFESTYLE</p>
+
+        <h2>
+            Make Every Day
+            <span>More Sustainable</span>
+        </h2>
+
+        <p class="intro-text">
+            Living sustainably doesn't mean changing your entire life.
+            Small everyday choices can help protect nature, save resources
+            and create a healthier planet for everyone.
+        </p>
+
+    </section>
+
+
+
+    <section class="section container" id="carbon">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-label">01 • CARBON FOOTPRINT</p>
+                <h2>Reduce Your Carbon Footprint</h2>
+            </div>
+
+            <p>
+                Your daily activities affect the environment.
+                Here are some simple ways to reduce your impact.
+            </p>
+        </div>
+
+
+        <div class="card-grid">
+
+            <article class="eco-card">
+                <div class="card-icon">🚲</div>
+                <h3>Choose Cycling</h3>
+                <p>
+                    Use a bicycle or walk for short distances instead of
+                    taking a car or motorcycle.
+                </p>
+            </article>
+
+
+            <article class="eco-card">
+                <div class="card-icon">⚡</div>
+                <h3>Save Electricity</h3>
+                <p>
+                    Turn off lights and electronic devices when they are
+                    not being used.
+                </p>
+            </article>
+
+
+            <article class="eco-card">
+                <div class="card-icon">🌳</div>
+                <h3>Plant More Trees</h3>
+                <p>
+                    Trees absorb carbon dioxide and help create cleaner
+                    and healthier surroundings.
+                </p>
+            </article>
+
+
+            <article class="eco-card">
+                <div class="card-icon">💧</div>
+                <h3>Save Water</h3>
+                <p>
+                    Fix leaking taps and avoid wasting water during
+                    everyday activities.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="recycling-section" id="recycling">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">02 • RECYCLING</p>
+                    <h2>Recycle the Right Way</h2>
+                </div>
+
+                <p>
+                    Recycling helps reduce waste and saves valuable
+                    natural resources.
+                </p>
+            </div>
+
+
+            <div class="recycle-grid">
+
+                <div class="recycle-item">
+                    <span>📦</span>
+                    <h3>Paper</h3>
+                    <p>
+                        Newspapers, cardboard and clean paper can often
+                        be recycled.
+                    </p>
+                </div>
+
+
+                <div class="recycle-item">
+                    <span>🍾</span>
+                    <h3>Glass</h3>
+                    <p>
+                        Clean glass bottles and jars can be separated
+                        for recycling.
+                    </p>
+                </div>
+
+
+                <div class="recycle-item">
+                    <span>🥫</span>
+                    <h3>Metal</h3>
+                    <p>
+                        Aluminium cans and many metal containers can
+                        be recycled.
+                    </p>
+                </div>
+
+
+                <div class="recycle-item">
+                    <span>♻️</span>
+                    <h3>Plastic</h3>
+                    <p>
+                        Check local recycling rules before putting
+                        plastic into recycling bins.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Sustainable Living Guide -->
+
+<section class="guide-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-label">04 • SUSTAINABLE LIVING</p>
+                <h2>A Greener Way to Live</h2>
+            </div>
+
+            <p>
+                Sustainable living is about making thoughtful choices
+                in the way we eat, shop, travel and live every day.
+            </p>
+        </div>
+
+
+        <div class="guide-grid">
+
+            <article class="guide-card">
+                <span>🥗</span>
+                <h3>Eat Sustainably</h3>
+                <p>
+                    Choose fresh, seasonal and locally produced food
+                    whenever possible. Plan your meals and avoid
+                    unnecessary food waste.
+                </p>
+            </article>
+
+
+            <article class="guide-card">
+                <span>🛍️</span>
+                <h3>Shop Responsibly</h3>
+                <p>
+                    Buy only what you need, choose durable products
+                    and prefer reusable alternatives instead of
+                    single-use items.
+                </p>
+            </article>
+
+
+            <article class="guide-card">
+                <span>🏡</span>
+                <h3>Green Home</h3>
+                <p>
+                    Use energy-efficient lights, natural ventilation
+                    and reusable household products to make your home
+                    more environmentally friendly.
+                </p>
+            </article>
+
+
+            <article class="guide-card">
+                <span>🚆</span>
+                <h3>Travel Smart</h3>
+                <p>
+                    Walking, cycling and public transport can help
+                    reduce fuel consumption and emissions from
+                    everyday transportation.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Green Goals -->
+
+<section class="goals-section">
+
+    <div class="container">
+
+        <div class="goals-heading">
+
+            <p class="section-label">05 • OUR GREEN GOALS</p>
+
+            <h2>
+                Every Small Action
+                <span>Creates Impact.</span>
+            </h2>
+
+            <p>
+                A sustainable future starts with everyday choices.
+                Focus on simple actions that can become long-term habits.
+            </p>
+
+        </div>
+
+
+        <div class="goals-grid">
+
+            <div class="goal">
+                <strong>01</strong>
+                <div>
+                    <h3>Save Water</h3>
+                    <p>
+                        Turn off taps when not needed, repair leaks
+                        and use water carefully.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="goal">
+                <strong>02</strong>
+                <div>
+                    <h3>Use Clean Energy</h3>
+                    <p>
+                        Reduce unnecessary electricity use and explore
+                        renewable energy options such as solar power.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="goal">
+                <strong>03</strong>
+                <div>
+                    <h3>Reduce Waste</h3>
+                    <p>
+                        Follow the three R's — Reduce, Reuse and Recycle
+                        — before throwing something away.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="goal">
+                <strong>04</strong>
+                <div>
+                    <h3>Protect Nature</h3>
+                    <p>
+                        Plant trees, protect green spaces and keep
+                        natural areas free from litter.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <section class="section container" id="habits">
+
+        <div class="section-heading">
+            <div>
+                <p class="section-label">03 • ECO HABITS</p>
+                <h2>Simple Green Habits</h2>
+            </div>
+        </div>
+
+
+        <div class="habit-list">
+
+            <div class="habit">
+                <span>01</span>
+                <div>
+                    <h3>Carry a Reusable Bottle</h3>
+                    <p>
+                        Reduce your dependence on single-use plastic bottles.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="habit">
+                <span>02</span>
+                <div>
+                    <h3>Use Reusable Bags</h3>
+                    <p>
+                        Keep cloth or reusable shopping bags with you.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="habit">
+                <span>03</span>
+                <div>
+                    <h3>Eat More Local Food</h3>
+                    <p>
+                        Choosing local and seasonal food can reduce
+                        transportation impacts.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="habit">
+                <span>04</span>
+                <div>
+                    <h3>Avoid Food Waste</h3>
+                    <p>
+                        Plan meals, store food properly and compost
+                        suitable food scraps.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="tips">
+
+        <div class="container tips-content">
+
+            <p class="section-label">04 • DAILY GREEN TIP</p>
+
+            <h2 id="tip">
+                Turn off the lights when leaving a room.
+            </h2>
+
+            <button id="tipBtn">
+                Show Another Tip
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <div class="footer-logo">
+            🌿 GreenLifestyle
+        </div>
+
+        <p>
+            Simple choices today can create a greener tomorrow.
+        </p>
+
+        <p class="copyright">
+            © 2026 Green Lifestyle
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Power</title>
+    <link rel="stylesheet" href="wind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="green.css"> -->
+
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #F4FFF5;
+        color: #222;
+        line-height: 1.6;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 80px 0;
+    }
+
+    .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 18px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffffdd;
+        backdrop-filter: blur(10px);
+        z-index: 999;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, .08);
+    }
+
+    .logo {
+        font-size: 26px;
+        font-weight: 700;
+        color: #2E7D32;
+    }
+
+    .back-btn {
+        background: #2E7D32;
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    .hero {
+        height: 100vh;
+        background: url(images/hero.jpg) center/cover;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, .45);
+    }
+
+    .hero-content {
+        position: relative;
+        color: #fff;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 22px;
+    }
+
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .about img {
+        width: 100%;
+        border-radius: 25px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+    }
+
+    .about h2 {
+        font-size: 38px;
+        color: #2E7D32;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        transition: .3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    .card h3 {
+        color: #0EA5E9;
+        margin-bottom: 10px;
+    }
+
+    .turbine-section {
+        padding: 80px 20px;
+        text-align: center;
+        background: #E0F7FA;
+    }
+
+    .turbine {
+        position: relative;
+        width: 220px;
+        height: 300px;
+        margin: 40px auto;
+    }
+
+    .pole {
+        width: 12px;
+        height: 220px;
+        background: #666;
+        margin: auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hub {
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: #555;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        animation: spin 3s linear infinite;
+    }
+
+    .blade {
+        position: absolute;
+        width: 8px;
+        height: 90px;
+        background: #fff;
+        border-radius: 10px;
+        transform-origin: bottom center;
+    }
+
+    .b1 {
+        transform: rotate(0deg) translateY(-90px);
+    }
+
+    .b2 {
+        transform: rotate(120deg) translateY(-90px);
+    }
+
+    .b3 {
+        transform: rotate(240deg) translateY(-90px);
+    }
+
+    @keyframes spin {
+        100% {
+            transform: translateX(-50%) rotate(360deg);
+        }
+    }
+
+    .chart-section canvas {
+        background: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    }
+
+    .slider-section {
+        text-align: center;
+    }
+
+    .slider-section input {
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    .advantages {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .box {
+        padding: 35px;
+        border-radius: 25px;
+    }
+
+    .green {
+        background: #E8F5E9;
+    }
+
+    .red {
+        background: #FFF1F1;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: .4s;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    .facts {
+        background: #2E7D32;
+        color: #fff;
+        padding: 80px 10%;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .counter {
+        font-size: 55px;
+    }
+
+    .faq-item {
+        background: #fff;
+        border-radius: 15px;
+        margin: 15px 0;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    }
+
+    .faq-btn {
+        width: 100%;
+        padding: 20px;
+        background: #2E7D32;
+        color: #fff;
+        border: none;
+        text-align: left;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        transition: .4s;
+    }
+
+    .faq-item.active .faq-content {
+        max-height: 150px;
+        padding: 20px;
+    }
+
+    footer {
+        background: #0F172A;
+        color: #fff;
+        padding: 40px;
+        text-align: center;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 1s;
+    }
+
+    .reveal.show {
+        opacity: 1;
+        transform: none;
+    }
+
+    @media(max-width:768px) {
+        .hero h1 {
+            font-size: 34px;
+        }
+
+        .about,
+        .info,
+        .advantages,
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .facts {
+            gap: 30px;
+        }
+    }
+
+    .benefits {
+        padding: 90px 0;
+    }
+
+    .benefits h2 {
+        text-align: center;
+        font-size: 42px;
+        color: #2E7D32;
+        margin-bottom: 15px;
+    }
+
+    .benefits p.section-text {
+        text-align: center;
+        color: #666;
+        max-width: 700px;
+        margin: auto;
+        margin-bottom: 50px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .benefit-grid .card {
+        background: #ffffff;
+        padding: 30px 25px;
+        border-radius: 22px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+        transition: .35s ease;
+        border-top: 5px solid #43A047;
+    }
+
+    .benefit-grid .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 18px 35px rgba(46, 125, 50, .18);
+    }
+
+    .benefit-grid .card h3 {
+        font-size: 22px;
+        color: #2E7D32;
+        margin-bottom: 15px;
+    }
+
+    .benefit-grid .card p {
+        font-size: 15px;
+        color: #555;
+        line-height: 28px;
+    }
+
+    .hero {
+        background-image: url(images/wind.jpg);
+    }
+
+    #works {
+        display: flex;
+        padding: 105px 150px;
+        background-color: #E0F7FA;
+        gap: 40px;
+    }
+
+    .work {
+        
+        background-image: url(images/works.jpg);
+        width: 200%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin: auto;
+        justify-content: center;
+
+
+        
+    }
+    .textwork{
+        padding: 15px;
+    }
+    
+</style>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">🌬️ <span>Wind Power</span></div>
+       <a href="index.html"><button onclick="history.back()" class="back-btn">← Back</button></a>
+    </header>
+
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Power the Future with Wind Energy</h1>
+            <p>Clean • Renewable • Sustainable Energy for Tomorrow</p>
+        </div>
+    </section>
+
+
+    <section class="what" id="works">
+
+        <div class="work">
+            <!-- <img src="images/works.jpg" alt=""> -->
+        </div>
+
+        <div class="textwork">
+            <h1>What is Wind Power?</h1>
+            <p>Wind Power is a renewable source of energy created by converting the kinetic energy of moving air into
+                electricity. Large wind turbines rotate when wind blows, and a generator converts this motion into
+                electrical power.
+
+                Wind energy is clean, sustainable, and produces electricity without burning fossil fuels.</p>
+        </div>
+
+    </section>
+
+
+    <section class="info container">
+        <div class="card reveal">
+            <h3>📅 History</h3>
+            <p>Windmills have been used for over 2,000 years. Modern wind turbines became popular after the 1970s.</p>
+        </div>
+        <div class="card reveal">
+            <h3>⚙️ How It Works</h3>
+            <p>Wind → Blades → Rotor → Generator → Electricity Grid.</p>
+        </div>
+        <div class="card reveal">
+            <h3>🌿 Benefits</h3>
+            <p>Produces clean electricity with zero fuel cost and very low carbon emissions.</p>
+        </div>
+        <div class="card reveal">
+            <h3>🚀 Future</h3>
+            <p>Offshore wind farms and AI-powered turbines are making renewable energy smarter.</p>
+        </div>
+    </section>
+
+    <section class="turbine-section">
+        <h2>How Wind Turbine Works</h2>
+        <div class="turbine">
+            <div class="pole"></div>
+            <div class="hub">
+                <span class="blade b1"></span>
+                <span class="blade b2"></span>
+                <span class="blade b3"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart-section container">
+        <h2>Monthly Wind Energy Production</h2>
+        <canvas id="windChart"></canvas>
+    </section>
+
+    <section class="slider-section container">
+        <h2>Wind Speed Simulator</h2>
+        <p>Wind Speed: <span id="speed">20</span> km/h</p>
+        <input type="range" min="5" max="40" value="20" id="slider">
+        <h3>Generated Power: <span id="power">400</span> MW ⚡</h3>
+    </section>
+
+    <section class="advantages container">
+        <div class="box green">
+            <h2>Advantages</h2>
+            <ul>
+                <li>100% Renewable Energy</li>
+                <li>No Air Pollution</li>
+                <li>Low Operating Cost</li>
+                <li>Creates Green Jobs</li>
+            </ul>
+        </div>
+        <div class="box red">
+            <h2>Challenges</h2>
+            <ul>
+                <li>Wind is Not Constant</li>
+                <li>Large Land Required</li>
+                <li>High Installation Cost</li>
+                <li>Noise in Some Areas</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="gallery container">
+        <h2>Famous Wind Farms in India</h2>
+        <div class="gallery-grid">
+            <img src="images/fames1.jpg">
+            <img src="images/fames2.jpg">
+            <img src="images/fames3.jpg">
+            <img src="images/fames4.jpg">
+        </div>
+    </section>
+    <section class="benefits container">
+
+        <h2>Top Benefits of Wind Energy</h2>
+
+        <div class="benefit-grid">
+
+            <div class="card">
+                <h3>🌱 Eco Friendly</h3>
+                <p>No harmful emissions while generating electricity.</p>
+            </div>
+
+            <div class="card">
+                <h3>💰 Saves Fuel Cost</h3>
+                <p>Wind is free, so electricity production doesn't require fuel.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏭 Creates Jobs</h3>
+                <p>Wind farms create thousands of engineering and maintenance jobs.</p>
+            </div>
+
+            <div class="card">
+                <h3>⚡ Renewable Energy</h3>
+                <p>Produces electricity continuously wherever sufficient wind is available.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Climate Friendly</h3>
+                <p>Reduces carbon emissions and helps fight climate change.</p>
+            </div>
+
+            <div class="card">
+                <h3>🏡 Rural Development</h3>
+                <p>Wind farms bring development to villages and remote areas.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="facts">
+        <div>
+            <h2 class="counter" data-target="350">0</h2>
+            <p>Wind Farms</p>
+        </div>
+        <div>
+            <h2 class="counter" data-target="48">0</h2>
+            <p>GW Capacity in India</p>
+        </div>
+        <div>
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Countries Using Wind Energy</p>
+        </div>
+    </section>
+
+    <section class="faq container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-btn">What is Wind Power?</button>
+            <div class="faq-content">Wind Power converts wind's kinetic energy into electricity.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-btn">Is Wind Energy Renewable?</button>
+            <div class="faq-content">Yes. Wind is naturally replenished and never runs out.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-btn">Can Wind Turbines Work at Night?</button>
+            <div class="faq-content">Yes, they work whenever wind is available.</div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>🌬️ Wind Power</h2>
+        <p>Clean Energy for a Better Tomorrow.</p>
+        <p>© 2026 Sustainable Energy Project</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById("windChart");
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Wind Energy (MW)",
+                    data: [120, 180, 250, 320, 420, 510, 620, 580, 500, 420, 300, 200],
+                    borderColor: "#2E7D32",
+                    backgroundColor: "rgba(46,125,50,.2)",
+                    fill: true,
+                    tension: .4
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        const slider = document.getElementById("slider");
+        const speed = document.getElementById("speed");
+        const power = document.getElementById("power");
+        slider.addEventListener("input", () => {
+            speed.innerHTML = slider.value;
+            power.innerHTML = slider.value * 20;
+        });
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach(counter => {
+            let count = 0;
+            const target = +counter.dataset.target;
+            const update = () => {
+                count += 2;
+                if (count < target) {
+                    counter.innerHTML = count;
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerHTML = target + "+";
+                }
+            };
+            update();
+        });
+
+        document.querySelectorAll(".faq-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                btn.parentElement.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
